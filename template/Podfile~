@@ -1,0 +1,9 @@
+platform :ios, '12.0'
+use_frameworks!
+
+target 'template' do
+  pod 'DSGradientProgressView', '~> 1.0.1'
+  pod 'OverlayContainer', '~> 3.0.1'
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'SwifterSwift'
+end

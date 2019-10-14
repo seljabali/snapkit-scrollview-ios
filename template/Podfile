@@ -1,0 +1,7 @@
+platform :ios, '12.0'
+use_frameworks!
+
+target 'template' do
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'SwifterSwift'
+end
