@@ -3,23 +3,17 @@ import SnapKit
 import UIKit
 
 class ScrollingViewController: UIViewController {
-    private let homeScrollView = UIScrollView()
 
-    // Easiest way to solve this problem is with a content view:
+    private let scrollView = UIScrollView()
     private let contentView = UIView()
+    // Your new hierarchy is: view -> scrollView -> contentView -> labels
 
-    // Your new hierarchy is: self.view HAS a homeScrollView (as a subview) which HAS a contentView (as a subview) which HAS many labels.
-
-    // Basically, you want to lay the labels out in the contentView, then just lay the contentView out in the scrollView (much easier right?)
-
-    // So many labels :)
     private let aLabel = UILabel()
     private let bLabel = UILabel()
     private let cLabel = UILabel()
     private let dLabel = UILabel()
     private let eLabel = UILabel()
 
-    // Don't capitalize variable names. There are almost no exceptions (not even with acronyms. E.g., if your acronym is FBI, your variable is: "fbi" -- if your variable is for a "User ID" your variable is "userId" -- Swift convention is like this. You'll get to used to it!
     private let dummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
     override func viewDidLoad() {
@@ -32,12 +26,10 @@ class ScrollingViewController: UIViewController {
 
     private func initializeViews() {
         // Add subviews to `view`
-        for subview in [contentView, homeScrollView] {
-            view.addSubview(subview)
-        }
+        view.addSubview(scrollView)
 
         // Add `contentView` to `homeScrollView`
-        homeScrollView.addSubview(contentView)
+        scrollView.addSubview(contentView)
 
         // Add subviews to `contentView`
         for subview in [aLabel, bLabel, cLabel, dLabel, eLabel] {
@@ -45,59 +37,57 @@ class ScrollingViewController: UIViewController {
         }
 
         // Apply attributes to the views
-        homeScrollView.apply {
+        scrollView.apply {
             $0.alwaysBounceVertical = true
             $0.alwaysBounceHorizontal = false
             $0.showsHorizontalScrollIndicator = false
-
             // Use these insets instead of lining up with safeAreaLayoutGuide below. It's 'true' by default, but I'm showing it to you anyway ;)
             $0.insetsLayoutMarginsFromSafeArea = true
         }
 
         aLabel.apply {
             $0.text = dummyText
-            $0.numberOfLines = 9
+            $0.numberOfLines = 0
         }
 
         bLabel.apply {
             $0.text = dummyText
-            $0.numberOfLines = 9
+            $0.numberOfLines = 0
         }
 
         cLabel.apply {
             $0.text = dummyText
-            $0.numberOfLines = 9
+            $0.numberOfLines = 0
         }
 
         dLabel.apply {
             $0.text = dummyText
-            $0.numberOfLines = 9
+            $0.numberOfLines = 0
         }
 
         eLabel.apply {
             $0.text = dummyText
-
             // Did you know if you choose `0` numberOfLines, it allows as many lines as it needs?
-
+            // DID NOT! THANK YOU :D
             $0.numberOfLines = 0
         }
     }
 
     private func setConstraints() {
-        homeScrollView.snp.makeConstraints { make in
+        scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
 
         // Content View
         contentView.snp.makeConstraints { make in
             // Make the top and bottom always be the top and bottom of the scroll view (since we want to scroll vertically only)
-            make.top.bottom.equalTo(homeScrollView)
+            make.top.bottom.equalTo(scrollView)
 
             // Hard set the left and right to be equal to the view
             make.left.right.equalTo(view)
 
             // Hard set the width and height to be equal to the scrollView. Remember, this is the sam as saying making the homeScrollView's left and right the same as the contentView. You're saying "snap these things to each other"
-            make.left.right.equalTo(homeScrollView)
+            make.width.height.equalTo(scrollView)
         }
 
         // Remember, these are all in `contentView` now
@@ -128,7 +118,7 @@ class ScrollingViewController: UIViewController {
             make.left.right.equalTo(contentView).inset(HorizontalSpacings.m)
 
             // So, add this rule. Remember, you're saying "make sure that the bottom of the contentView is lined up with the bottom of the last label" or "make sure the bottom of the last label is the bottom of the contentView" (which is the same thing, right?) -- note that I added an inset here
-            make.bottom.equalTo(homeScrollView).inset(VerticalSpacings.m)
+            make.bottom.equalTo(scrollView).offset(VerticalSpacings.m)
         }
     }
 
