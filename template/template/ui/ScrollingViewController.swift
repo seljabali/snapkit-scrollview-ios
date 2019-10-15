@@ -25,18 +25,11 @@ class ScrollingViewController: UIViewController {
     }
 
     private func initializeViews() {
-        // Add subviews to `view`
         view.addSubview(scrollView)
-
-        // Add `contentView` to `homeScrollView`
         scrollView.addSubview(contentView)
-
-        // Add subviews to `contentView`
         for subview in [aLabel, bLabel, cLabel, dLabel, eLabel] {
             contentView.addSubview(subview)
         }
-
-        // Apply attributes to the views
         scrollView.apply {
             $0.alwaysBounceVertical = true
             $0.alwaysBounceHorizontal = false
@@ -44,31 +37,24 @@ class ScrollingViewController: UIViewController {
             // Use these insets instead of lining up with safeAreaLayoutGuide below. It's 'true' by default, but I'm showing it to you anyway ;)
             $0.insetsLayoutMarginsFromSafeArea = true
         }
-
         aLabel.apply {
             $0.text = dummyText
             $0.numberOfLines = 0
         }
-
         bLabel.apply {
             $0.text = dummyText
             $0.numberOfLines = 0
         }
-
         cLabel.apply {
             $0.text = dummyText
             $0.numberOfLines = 0
         }
-
         dLabel.apply {
             $0.text = dummyText
             $0.numberOfLines = 0
         }
-
         eLabel.apply {
             $0.text = dummyText
-            // Did you know if you choose `0` numberOfLines, it allows as many lines as it needs?
-            // DID NOT! THANK YOU :D
             $0.numberOfLines = 0
         }
     }
@@ -87,7 +73,7 @@ class ScrollingViewController: UIViewController {
             make.left.right.equalTo(view)
 
             // Hard set the width and height to be equal to the scrollView. Remember, this is the sam as saying making the homeScrollView's left and right the same as the contentView. You're saying "snap these things to each other"
-            make.width.height.equalTo(scrollView)
+            make.width.equalTo(scrollView)
         }
 
         // Remember, these are all in `contentView` now
