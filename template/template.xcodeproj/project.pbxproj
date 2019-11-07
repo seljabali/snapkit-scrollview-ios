@@ -11,6 +11,7 @@
 		6867AB8C2343F86E00A32328 /* PresetDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6867AB8B2343F86E00A32328 /* PresetDimensions.swift */; };
 		A21C343B714B4FAF5EA536B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A21C3A3E91D8A9CE8AA212BD /* LaunchScreen.storyboard */; };
 		A21C34860F65E4B26762395F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C3813F8AADD0A406C3D5F /* RootViewController.swift */; };
+		A21C363B1EE6A462373707EE /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C34FD2EA6EDFDA4F8B3AC /* PassThroughView.swift */; };
 		A21C3795A57A27685F19529F /* ScrollingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C39FC583B4AA93CB62EE3 /* ScrollingViewController.swift */; };
 		A21C37F9BDEFCBDC9CBCDA13 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C3D76390C534FB2DF730C /* HomeNavigationController.swift */; };
 		A21C3B23EF9117B75D0E6749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21C3A3881AB554B9B4B2FEA /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		A21C325D14288BFD666BC8EA /* templateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = templateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21C32F3FE22818A0B985413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		A21C33B971FC0B62A5C41F38 /* templateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = templateUITests.swift; sourceTree = "<group>"; };
+		A21C34FD2EA6EDFDA4F8B3AC /* PassThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
 		A21C3813F8AADD0A406C3D5F /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A21C38B791824FFF46469A1C /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		A21C38CC23C5572C100AEB0B /* templateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = templateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 			children = (
 				6867AB6E2343F5FB00A32328 /* design */,
 				6867AB6D2343F5F300A32328 /* extensions */,
+				A21C34FD2EA6EDFDA4F8B3AC /* PassThroughView.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				A21C3FC85994965DB0A6B241 /* SwiftExtensions.swift in Sources */,
 				A21C34860F65E4B26762395F /* RootViewController.swift in Sources */,
 				A21C37F9BDEFCBDC9CBCDA13 /* HomeNavigationController.swift in Sources */,
+				A21C363B1EE6A462373707EE /* PassThroughView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
