@@ -87,7 +87,7 @@ class ScrollingViewController: UIViewController {
             make.top.equalTo(dLabel.snp.bottom).offset(VerticalSpacings.m)
             make.left.right.equalTo(contentView).inset(HorizontalSpacings.m)
             // Make sure that the bottom of the contentView is lined up with the bottom of the last view
-            make.bottom.equalTo(scrollView).offset(VerticalSpacings.m)
+            make.bottom.equalTo(scrollView).offset(-VerticalSpacings.m)
         }
     }
 }
